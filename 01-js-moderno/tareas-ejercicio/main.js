@@ -23,8 +23,49 @@ function renderTasks() {
     };
     li.appendChild(btn);
     list.appendChild(li);
+
+    const but = document.createElement('button');
+    but.textContent = "editar";
+    but.onclick = () => {
+    const tareanueva = prompt("Editar tarea:", task);
+    if (tareanueva) {
+      removeTask(idx);
+      addTask(tareanueva);
+      renderTasks();
+      }
+    };
+    li.appendChild(but);
+    list.appendChild(li);
+
+    const com = document.createElement('button');
+    com.textContent = "completada";
+    com.classList.add('completada'); // Clase inicial
+    com.id = "tarea-completa"; // ID inicial
+
+    com.onclick = () => {
+      
+      if (com.classList =('completada')) {
+        // Cambiar a incompleto
+        com.id = "tarea-incompleta";
+        com.textContent = "incompleto";
+        com.classList.remove('completada');
+        com.classList.add('incompleta');
+        console.log("Tarea completada");
+      } else {
+        // Cambiar a completo
+        com.id = "tarea-completa";
+        com.textContent = "completada";
+        com.classList.add('completada');
+        com.classList.remove('incompleta');
+        console.log("Tarea incompleta");
+      }
+      renderTasks();
+    };
+    li.appendChild(com);
+    list.appendChild(li);
   });
 }
+
 
 // Maneja el evento submit del formulario para agregar una tarea
 form.onsubmit = e => {
