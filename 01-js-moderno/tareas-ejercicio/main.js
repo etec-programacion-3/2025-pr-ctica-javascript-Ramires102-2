@@ -1,5 +1,5 @@
 // Importa las funciones del módulo de tareas
-import { getTasks, addTask, removeTask } from './tareas.js';
+import { getTasks, addTask, removeTask, isComplete } from './tareas.js';
 
 // Referencias a los elementos del DOM
 const form = document.getElementById('task-form');
@@ -38,34 +38,24 @@ function renderTasks() {
     list.appendChild(li);
 
     const com = document.createElement('button');
-    com.textContent = "completada";
-    com.classList.add('completada'); // Clase inicial
-    com.id = "tarea-completa"; // ID inicial
+    com.textContent = isComplete ? "completado" : "incompleto";
 
     com.onclick = () => {
-      
-      if (com.classList =('completada')) {
-        // Cambiar a incompleto
-        com.id = "tarea-incompleta";
-        com.textContent = "incompleto";
-        com.classList.remove('completada');
-        com.classList.add('incompleta');
-        console.log("Tarea completada");
-      } else {
+      if (isComplete === false) {
         // Cambiar a completo
-        com.id = "tarea-completa";
-        com.textContent = "completada";
-        com.classList.add('completada');
-        com.classList.remove('incompleta');
-        console.log("Tarea incompleta");
+        com.id = "completa";
+        com.textContent = "completado";
+      } else {
+        // Cambiar a incompleto
+        com.id = "incompleta";
+        com.textContent = "incompleto";
       }
-      renderTasks();
     };
     li.appendChild(com);
     list.appendChild(li);
+    return com;
   });
 }
-
 
 // Maneja el evento submit del formulario para agregar una tarea
 form.onsubmit = e => {
@@ -76,4 +66,4 @@ form.onsubmit = e => {
 };
 
 // Render inicial de las tareas
-renderTasks(); 
+renderTasks();
