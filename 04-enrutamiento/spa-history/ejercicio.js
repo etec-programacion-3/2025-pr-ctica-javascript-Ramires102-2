@@ -22,11 +22,12 @@ const navigate = route => {
 };
 
 // Maneja los clics en la navegación para cambiar de vista sin recargar
-const btn = document.createElement('button');
-btn.textContent = '<--';
-
-const btn2 = document.createElement('button');
-btn2.textContent = '-->';
+atras.addEventListener('click', e => {
+  window.history.back(); // Navega hacia atrás en el historial
+});
+adelante.addEventListener('click', e => {
+  window.history.forward(); // Navega hacia adelante en el historial
+});
 // Usa delegación de eventos en el nav
 // Actualiza la URL y la vista
 
@@ -38,7 +39,7 @@ document.querySelector('nav').addEventListener('click', e => {
 
 // TODO: Maneja el evento popstate para soportar navegación con los botones del navegador
 // window.addEventListener(...)
-windows.addEventListener('popstate', () => {
+window.addEventListener('popstate', () => {
   render(window.location.pathname);
 });
 
