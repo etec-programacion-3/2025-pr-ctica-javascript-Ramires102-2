@@ -5,8 +5,9 @@ const app = document.getElementById('app');
 const routes = {
   '/': () => '<h1>Inicio</h1><p>Bienvenido a la SPA.</p>',
   '/productos': () => '<h1>Productos</h1><p>Lista de productos aquí.</p>',
-  '/contacto': () => '<h1>Contacto</h1><p>Formulario de contacto aquí.</p>'
+  '/contacto': () => '<h1>Contacto</h1><p>Formulario de contacto aquí.</p>',
   // TODO: Agrega aquí la ruta y la vista para /producto/1
+  '/productos/sala1': () => '<h1>sala 1</h1><p>lista de productos en la sala 1</p>'
 };
 
 // Renderiza la vista correspondiente a la ruta actual
@@ -21,6 +22,11 @@ const navigate = route => {
 };
 
 // Maneja los clics en la navegación para cambiar de vista sin recargar
+const btn = document.createElement('button');
+btn.textContent = '<--';
+
+const btn2 = document.createElement('button');
+btn2.textContent = '-->';
 // Usa delegación de eventos en el nav
 // Actualiza la URL y la vista
 
@@ -32,6 +38,10 @@ document.querySelector('nav').addEventListener('click', e => {
 
 // TODO: Maneja el evento popstate para soportar navegación con los botones del navegador
 // window.addEventListener(...)
+windows.addEventListener('popstate', () => {
+  render(window.location.pathname);
+});
+
 
 // Render inicial según la ruta actual
 render(window.location.pathname); 
