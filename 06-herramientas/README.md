@@ -34,7 +34,8 @@ Esta carpeta te enseña a usar herramientas modernas del ecosistema JavaScript p
 Lee el código y la configuración en esta carpeta para experimentar.
 
 ## comando que se agrego
-- format:list : esto lo que hace es formatear todo lo que este dentro de 06-herramientas
+- format:list : esto lo que hace es formatear todo lo que este dentro de 06-herramientas.
+- se tiene que poner "npm run lint" para ver el efecto de no poder usar un console.log (primero se tiene que agregar en cualquier archivo.js).
 
 ## Conceptos clave
 - npm y gestión de dependencias
