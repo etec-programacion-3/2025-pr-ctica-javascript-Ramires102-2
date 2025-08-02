@@ -33,6 +33,9 @@ Esta carpeta te enseña a usar herramientas modernas del ecosistema JavaScript p
 
 Lee el código y la configuración en esta carpeta para experimentar.
 
+## comando que se agrego
+- format:list : esto lo que hace es formatear todo lo que este dentro de 06-herramientas
+
 ## Conceptos clave
 - npm y gestión de dependencias
 - ESLint y Prettier para calidad y formato de código
